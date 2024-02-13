@@ -13,6 +13,12 @@
 </head>
 <body>
 <header>
+    <?php
+    session_start();
+    if (isset($_SESSION['cookies'])) {
+        $articlesInCart = count($_SESSION['cookies']);
+    }
+    ?>
     <!-- MENU ENTETE -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -40,7 +46,7 @@
                     <li>
                         <a href="/cart.php" class="btn btn-warning navbar-btn">
                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                            Cart
+                            Cart <?= $articlesInCart ?>
                         </a>
                     </li>
                 </ul>
